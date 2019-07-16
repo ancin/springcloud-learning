@@ -1,0 +1,25 @@
+server:
+  port: 8060
+
+spring:
+  application:
+    name: config-server
+  profiles:
+      active: native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/configs
+
+
+info:
+  app.name: config-server
+  company.name: dding
+  build.artifactId: config-server
+  build.version: 0.0.1
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/

@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: hello-consumer
+logging:
+  level:
+    root: info
+server:
+  port: 8081
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
