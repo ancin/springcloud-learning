@@ -65,6 +65,7 @@
         <module>springcloud-hello-provider</module>
         <module>springcloud-hello-consumer</module>
         <module>springcloud-config-server</module>
+        <module>springcloud-user-service</module>
     </modules>
 
     <!--管理maven依赖的版本-->

@@ -4,7 +4,9 @@
  */
 package com.example.hello.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -16,16 +18,22 @@ import java.util.UUID;
 @RestController
 public class HelloController {
 
+    @Autowired
+    protected RestTemplate restTemplate;
 
 
     @RequestMapping(value = "/hello2", method = RequestMethod.GET)
     public String hello() throws Exception {
-       System.out.println("hello -service");
+       System.out.println("server:hello -service");
         return "======Hello World=====";
     }
     @RequestMapping("/hello")
-    public String index(@RequestParam String name) {
-        System.out.println("hello "+name+"，this is first messge");
+    public String hello(@RequestParam String name) {
+        System.out.println("server:hello "+name+"，this is first messge");
+        String uri = "http://USER-SERVICE/getUser?name=";
+        System.out.println("client call.name="+name);
+        String res = restTemplate.getForObject(uri+name, String.class);
+        System.out.println("## get userInfo from userService message:"+res);
         return "hello "+name+"，this is first messge";
     }
 

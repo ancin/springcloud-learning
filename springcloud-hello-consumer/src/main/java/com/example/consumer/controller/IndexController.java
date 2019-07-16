@@ -39,9 +39,23 @@ public class IndexController {
     }
 
     @RequestMapping("/hello/{name}")
+    @HystrixCommand(fallbackMethod = "helloFallback")
     public String index(@PathVariable("name") String name) {
-        return"helloddddd";
+        String uri = "http://HELLO-SERVICE/hello?name=";
+        System.out.println("client call.name="+name);
+        return this.restTemplate.getForObject(uri+name, String.class);
+    }
+    public String helloFallback(String name){
+        return "HELLO-callback";
     }
 
+
+    @RequestMapping("/getUser/{name}")
+    @HystrixCommand(fallbackMethod = "helloFallback")
+    public String getUser(@PathVariable("name") String name) {
+        String uri = "http://USER-SERVICE/getUser?name=";
+        System.out.println("client call getUser name="+name);
+        return this.restTemplate.getForObject(uri+name, String.class);
+    }
 
 }

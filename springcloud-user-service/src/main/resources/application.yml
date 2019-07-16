@@ -1,9 +1,9 @@
 server:
-  port: 8080
+  port: 8082
 
 spring:
   application:
-    name: hello-service
+    name: user-service
   sleuth:
       web:
         client:
@@ -23,7 +23,7 @@ eureka:
     #####需要去检索服务信息
     fetch-registry: true
 info:
-  app.name: HELLO-provide
+  app.name: user-service
   company.name: dding
   build.artifactId: $project.artifactId$
   build.version: 0.0.1
