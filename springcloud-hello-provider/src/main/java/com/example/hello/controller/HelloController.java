@@ -4,6 +4,7 @@
  */
 package com.example.hello.controller;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
@@ -22,12 +23,8 @@ public class HelloController {
     protected RestTemplate restTemplate;
 
 
-    @RequestMapping(value = "/hello2", method = RequestMethod.GET)
-    public String hello() throws Exception {
-       System.out.println("server:hello -service");
-        return "======Hello World=====";
-    }
     @RequestMapping("/hello")
+    @HystrixCommand(fallbackMethod = "findByIdFallback")
     public String hello(@RequestParam String name) {
         System.out.println("server:hello "+name+"，this is first messge");
         String uri = "http://USER-SERVICE/getUser?name=";
@@ -38,10 +35,15 @@ public class HelloController {
     }
 
     @GetMapping("/{id}")
+    @HystrixCommand(fallbackMethod = "findByIdFallback")
     public Optional<String> findById(@PathVariable Long id) {
         String uuid = UUID.randomUUID().toString().toUpperCase();
         System.out.println("#server uuid:"+uuid);
         return Optional.ofNullable(uuid);
+    }
+
+    public String findByIdFallback(Long id){
+        return "默认用户";
     }
 
 }

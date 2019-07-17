@@ -1,9 +1,9 @@
 server:
-  port: 8080
+  port: 8090
 
 spring:
   application:
-    name: hello-service
+    name: hystrix-dashboard
   sleuth:
       web:
         client:
@@ -23,12 +23,7 @@ eureka:
     #####需要去检索服务信息
     fetch-registry: true
 info:
-  app.name: HELLO-provide
+  app.name: hystrix-dashboard
   company.name: dding
-  build.artifactId: $project.artifactId$
+  build.artifactId: hystrix-dashboard
   build.version: 0.0.1
-management:
-  endpoints:
-    web:
-      exposure:
-        include: hystrix.stream

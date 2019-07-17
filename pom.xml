@@ -57,7 +57,11 @@
             <version>2.1.2.RELEASE</version>
         </dependency>
 -->
-
+        <dependency>
+            <groupId>com.netflix.hystrix</groupId>
+            <artifactId>hystrix-javanica</artifactId>
+            <version>1.5.12</version>
+        </dependency>
     </dependencies>
 
     <modules>
@@ -66,6 +70,7 @@
         <module>springcloud-hello-consumer</module>
         <module>springcloud-config-server</module>
         <module>springcloud-user-service</module>
+        <module>springcloud-hystrix-dash</module>
     </modules>
 
     <!--管理maven依赖的版本-->
