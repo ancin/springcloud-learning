@@ -3,7 +3,7 @@ spring:
     name: hello-consumer
 logging:
   level:
-    root: info
+    root: debug
 server:
   port: 8081
 eureka:

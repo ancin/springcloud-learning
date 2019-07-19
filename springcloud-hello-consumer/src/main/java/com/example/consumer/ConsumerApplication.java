@@ -39,6 +39,10 @@ public class ConsumerApplication {
         return registrationBean;
     }
 
+    /***
+     * zipkin http://localhost:9411/zipkin/
+     * @param args
+     */
     public static void main(String[] args) {
         SpringApplication.run(ConsumerApplication.class, args);
     }

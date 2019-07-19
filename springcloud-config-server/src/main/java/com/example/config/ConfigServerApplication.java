@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.config.server.EnableConfigServer;
 
 /**
+ * http://localhost:8060/configclient/dev
  * @author ancin
  * @create 2019-07-16 14:01
  **/
