@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: consul-customer
+server:
+  port: 8083
+
+endpoints:
+  restart:
+    enabled: true

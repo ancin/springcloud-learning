@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: user-service-provide
+logging:
+  level:
+    root: info
+server:
+  port: 8082
+  cloud:
+    consul:
+      discovery:
+        service-name: consul-provider  ## 服务提供者名称
+      host: localhost                  ## consul 所在服务地址
+      port: 8500

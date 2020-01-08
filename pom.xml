@@ -71,6 +71,8 @@
         <module>springcloud-config-server</module>
         <module>springcloud-user-service</module>
         <module>springcloud-hystrix-dash</module>
+        <module>springcloud-consul</module>
+        <module>springcloud-consul-consumer</module>
     </modules>
 
     <!--管理maven依赖的版本-->
