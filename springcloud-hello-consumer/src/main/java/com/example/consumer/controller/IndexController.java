@@ -31,11 +31,11 @@ public class IndexController {
     @HystrixCommand(fallbackMethod = "findByIdFallback")
     public String findById(@PathVariable Long id) {
         System.out.println("##id="+id);
-        String uri = "http://HELLO-SERVICE/";
+        String uri = "http://HELLO-SERVICE/user?id=";
         return this.restTemplate.getForObject(uri+ id, String.class);
     }
     public String findByIdFallback(Long id){
-        return "默认用户";
+        return "Consumer--默认用户";
     }
 
     @RequestMapping("/hello/{name}")
@@ -47,7 +47,7 @@ public class IndexController {
     }
 
     public String helloFallback(String name){
-        return "HELLO-callback method invoked.";
+        return "Consumer -- HELLO-callback method invoked.";
     }
 
 

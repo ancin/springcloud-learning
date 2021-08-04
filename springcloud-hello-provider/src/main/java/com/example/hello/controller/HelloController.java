@@ -34,7 +34,7 @@ public class HelloController {
         return "hello "+name+"，this is first messge";
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/user/{id}")
     @HystrixCommand(fallbackMethod = "findByIdFallback")
     public Optional<String> findById(@PathVariable Long id) {
         String uuid = UUID.randomUUID().toString().toUpperCase();
@@ -43,10 +43,10 @@ public class HelloController {
     }
 
     public String findByIdFallback(Long id){
-        return "默认用户";
+        return "Provider-默认用户";
     }
     public String findByNameFallback(String name){
-        return "默认用户";
+        return "Provider-默认用户";
     }
 
 }
