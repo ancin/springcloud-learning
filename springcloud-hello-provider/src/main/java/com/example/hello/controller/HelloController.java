@@ -24,7 +24,7 @@ public class HelloController {
 
 
     @RequestMapping("/hello")
-    @HystrixCommand(fallbackMethod = "findByIdFallback")
+    @HystrixCommand(fallbackMethod = "findByNameFallback")
     public String hello(@RequestParam String name) {
         System.out.println("server:hello "+name+"，this is first messge");
         String uri = "http://USER-SERVICE/getUser?name=";
@@ -43,6 +43,9 @@ public class HelloController {
     }
 
     public String findByIdFallback(Long id){
+        return "默认用户";
+    }
+    public String findByNameFallback(String name){
         return "默认用户";
     }
 

@@ -45,8 +45,9 @@ public class IndexController {
         System.out.println("client call.name="+name);
         return this.restTemplate.getForObject(uri+name, String.class);
     }
+
     public String helloFallback(String name){
-        return "HELLO-callback";
+        return "HELLO-callback method invoked.";
     }
 
 
